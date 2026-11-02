@@ -1,0 +1,10 @@
+{
+  "skills": [
+    {
+      "name": "weekly-report-remote",
+      "description": "Remote fixture mirror for registry search tests",
+      "source": "file://tests/fixtures/weekly-report",
+      "tags": ["report", "thai"]
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+# hub-policy: policy TOML + ตัวตัดสิน allow / deny / ask
+[package]
+name = "hub-policy"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+
+[dependencies]
+hub-core = { path = "../hub-core" }
+toml.workspace = true
+toml_edit.workspace = true
+serde.workspace = true
+thiserror.workspace = true
+rusqlite.workspace = true
+sha2 = "0.10"
+time.workspace = true
+serde_json.workspace = true
+rand = { version = "0.9", features = ["std", "std_rng"] }

@@ -1,0 +1,20 @@
+# hub-mcp: MCP server ฝั่ง agent — meta-tools หลัก (skills_search / skills_load / ...)
+[package]
+name = "hub-mcp"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+
+[dependencies]
+hub-connect = { path = "../hub-connect" }
+hub-core = { path = "../hub-core" }
+hub-log = { path = "../hub-log" }
+hub-policy = { path = "../hub-policy" }
+hub-registry = { path = "../hub-registry" }
+rmcp.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+schemars.workspace = true
+anyhow.workspace = true

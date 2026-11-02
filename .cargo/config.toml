@@ -1,0 +1,25 @@
+# ตั้งค่า build ของ workspace SkillHub
+#
+# ประเด็น "target บวม กินพื้นที่":
+# 1) target ถูกย้ายไปอยู่นอกโฟลเดอร์โปรเจกต์ (แชร์กันทุก workspace ที่ชี้มาที่เดียวกัน)
+#    ลบทั้ง folder นี้ได้เมื่อต้องการเคลียร์พื้นที่ แล้ว cargo จะ build ใหม่ให้เอง
+# 2) debug info ถูกบีบให้เหลือแค่ line tables (ดู [profile.dev] ใน Cargo.toml)
+#    dependencies ไม่สร้าง debug info เลย ([profile.dev.package."*"])
+# 3) incremental compilation ปิดอยู่ (อันนี้คือตัวที่ทำ target โตเกินจริง)
+#    จะเปิดชั่วคราวได้ด้วย:  set CARGO_INCREMENTAL=1
+#
+# คำสั่งเคลียร์: cargo clean  หรือ  ลบ D:\cargo-target\skillhub ทั้งโฟลเดอร์
+
+[build]
+target-dir = "D:\\cargo-target\\skillhub"
+
+# คำสั่ง dev ประจำโปรเจกต์
+#   cargo dev   = บิลด์แล้วรัน hub serve (daemon/CLI หลัก)
+#   cargo lint  = fmt + clippy ตามข้อตกลงใน CLAUDE.md
+[alias]
+dev = "run -p hub-cli --bin mali_gate -- serve"
+# ใช้ ctl ขณะ MCP รัน `mali_gate serve` (Windows ล็อก exe ตัวเดียวกัน)
+# ถูก:  cargo ctl logs --follow     ผิด:  cargo ctl -- logs --follow  (-- เกินไป)
+ctl = "run -p hub-cli --bin mali_gate_ctl --"
+logs = "run -p hub-cli --bin mali_gate_ctl -- logs"
+lint = "clippy --workspace --all-targets -- -D warnings"

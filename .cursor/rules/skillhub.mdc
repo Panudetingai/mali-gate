@@ -1,0 +1,38 @@
+---
+description: กฎประจำโปรเจกต์ SkillHub — Rust workspace ทำ MCP Gateway ตาม CLAUDE.md
+globs:
+alwaysApply: true
+---
+
+# SkillHub — กฎที่ต้องไม่ลืม
+
+ทุกงานใน repo นี้ให้อ่าน `CLAUDE.md` ที่ root ก่อน (สถาปัตยกรรม, meta-tools, แผนเฟส)
+สรุปกฎสำคัญ:
+
+## หลักการห้ามละเมิด
+- Hub คือ "ประตู" ไม่ใช่ "กำแพง" — ควบคุม/log ได้เฉพาะสิ่งที่ผ่าน hub
+- **Default deny**: ไม่มี policy = ปฏิเสธ; deny ชนะ allow เสมอ
+- ความลับ (token, API key) อยู่ใน OS keychain เท่านั้น ห้ามอยู่ใน config/log และห้ามส่งให้ agent
+- ทุก log เขียนผ่านฟังก์ชัน redact ก่อนเขียนเสมอ
+- พาธที่ agent ส่งมา ต้อง canonicalize + ตรวจว่าอยู่ในโฟลเดอร์ skill เท่านั้น (กัน `../`)
+- คลัง skills ต้องไม่อยู่ในที่ที่ agent สแกนเอง (เช่น `~/.claude/skills/`)
+- ติดตั้ง skill จากภายนอก = ต้องผ่าน allowlist แหล่งที่มา + pin hash + ผู้ใช้อนุมัติ
+- HTTP transport ผูก `127.0.0.1` เท่านั้น และมี token
+
+## ข้อตกลงโค้ด
+- Rust stable; จบงานทุกครั้งต้อง `cargo fmt --all` และ `cargo clippy --workspace -- -D warnings` ผ่าน
+- library crates ใช้ `thiserror`, binary ใช้ `anyhow`; ห้าม `unwrap()` ใน non-test code
+- เขียน test คู่กับฟีเจอร์เสมอ (unit test สำหรับ policy/parse, integration test สำหรับ MCP flow)
+- commit เล็ก ๆ ทีละเรื่อง
+
+## อยู่ที่เฟสไหน ทำแค่นั้น
+ปัจจุบันเฟส **6 (Dashboard)** ตาม CLAUDE.md — ห้ามข้ามลำดับเฟส
+เฟส 0–5: skills, log, policy, connect, install/registry, TUI log + stats + JSONL export
+Dashboard (axum) เริ่มได้เมื่อเฟส 1–5 เสร็จแล้ว
+
+## Build / พื้นที่ดิสก์
+- `D:\cargo-target\skillhub` คือตำแหน่ง target จริง (ดู `.cargo/config.toml`)
+  อย่าสร้าง `target/` ใน workspace และห้ามสร้าง config ที่เด้งเป็น target ท้องถิ่น
+- debug info ถูกบีบเหลือ line-tables, incremental ปิด — อย่าแก้กลับใน Cargo.toml โดยตรง
+- เคลียร์พื้นที่: `cargo clean` (หรือลบ D:\cargo-target\skillhub)
+- คำสั่งประจำ: `cargo dev` (run hub serve), `cargo lint` (fmt+clippy)

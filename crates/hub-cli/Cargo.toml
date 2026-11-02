@@ -1,0 +1,40 @@
+# hub-cli: binary `mali_gate` — CLI หลักของ Mali Gate
+[package]
+name = "hub-cli"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+autobins = false
+default-run = "mali_gate"
+
+[[bin]]
+name = "mali_gate"
+path = "src/main.rs"
+
+# Windows: MCP ล็อก `mali_gate.exe` ขณะ serve — ใช้ binary นี้สำหรับ logs/stats/CLI อื่น
+[[bin]]
+name = "mali_gate_ctl"
+path = "src/ctl.rs"
+
+[dependencies]
+hub-core = { path = "../hub-core" }
+hub-registry = { path = "../hub-registry" }
+hub-log = { path = "../hub-log" }
+hub-mcp = { path = "../hub-mcp" }
+hub-policy = { path = "../hub-policy" }
+hub-tui = { path = "../hub-tui" }
+clap.workspace = true
+anyhow.workspace = true
+colored.workspace = true
+crossterm.workspace = true
+tokio.workspace = true
+serde_json = { workspace = true, features = ["preserve_order"] }
+toml.workspace = true
+time.workspace = true
+
+[dev-dependencies]
+hub-connect = { path = "../hub-connect" }
+hub-core = { path = "../hub-core" }
+serde.workspace = true

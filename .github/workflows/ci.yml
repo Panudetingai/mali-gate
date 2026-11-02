@@ -1,0 +1,38 @@
+# CI ของ workspace SkillHub — fmt + clippy + test (ตามข้อตกลงใน CLAUDE.md)
+# OS เป้าหมายยังไม่ตัดสินใจ (ดูหัว "คำถามที่ยังต้องตัดสินใจ") จึงรันบนทั้ง Windows และ Linux
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  check:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Rust stable
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+
+      - name: Cache cargo (ตามกัน target บวม — แชร์ cache ที่เดียวเสมอ)
+        uses: Swatinem/rust-cache@v2
+
+      - name: fmt
+        run: cargo fmt --all -- --check
+
+      - name: clippy (-D warnings ตามข้อตกลง)
+        run: cargo clippy --workspace --all-targets -- -D warnings
+
+      - name: test
+        run: cargo test --workspace

@@ -1,0 +1,281 @@
+﻿cargo :    Compiling hub-policy v0.1.0 (D:\mali_gate\crates\hub-policy)
+At D:\mali_gate\.superpowers\sdd\d1\check.ps1:6 char:1
++ cargo test --workspace *> "$d\test.log"; $t = $LASTEXITCODE
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (   Compiling hu...tes\hub-policy):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+   Compiling hub-mcp v0.1.0 (D:\mali_gate\crates\hub-mcp)
+   Compiling hub-cli v0.1.0 (D:\mali_gate\crates\hub-cli)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 23.83s
+     Running unittests src\main.rs (D:\cargo-target\skillhub\debug\deps\mali_gate-a8ccd540188e032e.exe)
+
+running 22 tests
+test banner::tests::preview_banner ... ignored
+test banner::tests::flower_is_small_and_has_stamen ... ok
+test banner::tests::agent_names_truncate ... ok
+test banner::tests::narrow_stacks_card_below ... ok
+test banner::tests::unknown_values_show_dash_and_hints_appear ... ok
+test banner::tests::wide_puts_card_beside_flower ... ok
+test init::tests::claude_targets_use_claude_json_not_settings ... ok
+test init::tests::every_client_has_targets ... ok
+test init::tests::json_entry_keeps_user_env_and_sets_token ... ok
+test init::tests::merge_json_preserves_other_servers ... ok
+test init::tests::opencode_entry_shape ... ok
+test init::tests::codex_toml_replaces_only_our_section ... ok
+test slash::tests::ambiguous_prefix_opens_menu ... ok
+test slash::tests::bare_slash_opens_menu ... ok
+test slash::tests::prefix_resolves_unique_command ... ok
+test tests::palette_stays_plain_when_not_a_tty ... ok
+test tests::palette_wraps_in_ansi_when_colored ... ok
+test tests::repl_parses_slash_commands ... ok
+test tests::terminal_width_returns_plausible_value ... ok
+test tests::version_string_is_available ... ok
+test init::tests::swap_in_works_when_previous_old_copy_is_stuck ... ok
+test logs::tests::run_logs_shows_written_event ... ok
+
+test result: ok. 21 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.05s
+
+     Running unittests src\ctl.rs (D:\cargo-target\skillhub\debug\deps\mali_gate_ctl-626c6b6e3e60b52c.exe)
+
+running 22 tests
+test banner::tests::preview_banner ... ignored
+test banner::tests::flower_is_small_and_has_stamen ... ok
+test banner::tests::agent_names_truncate ... ok
+test banner::tests::narrow_stacks_card_below ... ok
+test banner::tests::unknown_values_show_dash_and_hints_appear ... ok
+test init::tests::claude_targets_use_claude_json_not_settings ... ok
+test banner::tests::wide_puts_card_beside_flower ... ok
+test init::tests::every_client_has_targets ... ok
+test init::tests::opencode_entry_shape ... ok
+test init::tests::json_entry_keeps_user_env_and_sets_token ... ok
+test init::tests::merge_json_preserves_other_servers ... ok
+test init::tests::codex_toml_replaces_only_our_section ... ok
+test slash::tests::ambiguous_prefix_opens_menu ... ok
+test slash::tests::bare_slash_opens_menu ... ok
+test slash::tests::prefix_resolves_unique_command ... ok
+test tests::palette_stays_plain_when_not_a_tty ... ok
+test tests::palette_wraps_in_ansi_when_colored ... ok
+test tests::repl_parses_slash_commands ... ok
+test tests::terminal_width_returns_plausible_value ... ok
+test tests::version_string_is_available ... ok
+test init::tests::swap_in_works_when_previous_old_copy_is_stuck ... ok
+test logs::tests::run_logs_shows_written_event ... ok
+
+test result: ok. 21 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.05s
+
+     Running tests\agent_lazy.rs (D:\cargo-target\skillhub\debug\deps\agent_lazy-3e3ffa31dabf4d14.exe)
+
+running 3 tests
+test agent_lazy_dry_run_writes_nothing ... ok
+test agent_lazy_strips_allow_star ... ok
+test agent_lazy_moves_used_into_shared_and_sets_ask ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.57s
+
+     Running tests\cli_grants.rs (D:\cargo-target\skillhub\debug\deps\cli_grants-02c2c83dd1e1e9ee.exe)
+
+running 5 tests
+test resolve_without_flag_means_shared ... ok
+test legacy_yes_still_works ... ok
+test list_shows_scope_hint ... ok
+test resolve_agent_and_conflicting_flags ... ok
+test skills_grant_and_revoke ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.32s
+
+     Running tests\mcp_lazy.rs (D:\cargo-target\skillhub\debug\deps\mcp_lazy-b9a2dea4ddf0de54.exe)
+
+running 7 tests
+test default_deny_agent_sees_only_shared_and_no_bodies ... ok
+test handshake_has_instructions ... ok
+test denied_skill_is_hidden_everywhere ... ok
+test mcp_list_filters_by_access ... ok
+test search_splits_allowed_and_requestable ... ok
+test tools_list_has_eight_meta_tools ... ok
+test unknown_or_wildcard_targets_are_denied_without_asking ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.24s
+
+     Running unittests src\lib.rs (D:\cargo-target\skillhub\debug\deps\hub_connect-d3b9f3d2fb1ba0d0.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src\lib.rs (D:\cargo-target\skillhub\debug\deps\hub_core-f9a58cdcc53504f6.exe)
+
+running 2 tests
+test tests::data_root_uses_mali_gate_home_when_set ... ok
+test tests::data_root_falls_back_to_mali_gate_dot_dir ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src\lib.rs (D:\cargo-target\skillhub\debug\deps\hub_log-fc65199af916784d.exe)
+
+running 5 tests
+test tests::enum_mapping_round_trips ... ok
+test tests::redact_keeps_benign_keys ... ok
+test tests::redact_cuts_secrets_at_any_depth ... ok
+test tests::redact_keeps_nested_data_intact ... ok
+test query::used_tests::resources_used_by_collects_allowed_only ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.11s
+
+     Running tests\logger.rs (D:\cargo-target\skillhub\debug\deps\logger-623530532f53af30.exe)
+
+running 4 tests
+test empty_db_returns_no_rows ... ok
+test redacts_secret_args_before_writing ... ok
+test writes_and_reads_back_events ... ok
+test last_n_returns_newest_first ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.10s
+
+     Running tests\query.rs (D:\cargo-target\skillhub\debug\deps\query-80afb9adda9c3cf4.exe)
+
+running 2 tests
+test export_jsonl_writes_lines ... ok
+test query_filters_agent_and_kind ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.06s
+
+     Running unittests src\lib.rs (D:\cargo-target\skillhub\debug\deps\hub_mcp-439251b35abfc517.exe)
+
+running 3 tests
+test session::tests::broken_policy_at_startup_is_an_error ... ok
+test session::tests::reload_keeps_last_good_policy ... ok
+test log_hook::tests::record_persists_skill_search ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+     Running unittests src\lib.rs (D:\cargo-target\skillhub\debug\deps\hub_policy-43163de8566c3d5a.exe)
+
+running 39 tests
+test agents::tests::add_list_revoke ... ok
+test apply::tests::approve_agent_for_call_grants_server_to_agent_only ... ok
+test agents::tests::rotate_invalidates_old_token ... ok
+test apply::tests::already_resolved_is_an_error_and_policy_untouched ... ok
+test apply::tests::approve_deny_writes_agent_deny ... ok
+test apply::tests::approve_once_does_not_touch_policy ... ok
+test approve::tests::grant_for_maps_kinds ... ok
+test approve::tests::grant_for_refuses_wildcards ... ok
+test apply::tests::approve_shared_writes_policy_then_resolves ... ok
+test apply::tests::request_is_claimed_before_policy_write ... ok
+test editor::tests::duplicate_grant_is_noop ... ok
+test editor::tests::grant_agent_creates_missing_agent_with_ask_default ... ok
+test editor::tests::grant_agent_updates_inline_table ... ok
+test editor::tests::grant_shared_creates_section_and_keeps_comments ... ok
+test editor::tests::remove_agent_wildcards_strips_star ... ok
+test editor::tests::revoke_agent_server_keeps_deny_tools ... ok
+test editor::tests::revoke_and_deny ... ok
+test editor::tests::save_is_atomic_and_backs_up_once ... ok
+test editor::tests::set_default_changes_effect ... ok
+test evaluate::tests::agent_deny_beats_agent_allow ... ok
+test evaluate::tests::agent_deny_beats_shared ... ok
+test evaluate::tests::agent_mode_deny_beats_shared_and_allow_tools ... ok
+test evaluate::tests::agent_tool_allow_and_mode ... ok
+test evaluate::tests::deny_wins_on_skills ... ok
+test evaluate::tests::listing_meta_tools_always_allowed ... ok
+test evaluate::tests::mcp_mode_shorthand_string_parses ... ok
+test evaluate::tests::mcp_tool_rules ... ok
+test evaluate::tests::old_policy_without_shared_still_parses ... ok
+test evaluate::tests::sees_everything_detects_allow_default_and_star ... ok
+test evaluate::tests::server_verdicts ... ok
+test evaluate::tests::shared_server_tools ... ok
+test evaluate::tests::shared_skill_allowed_for_everyone ... ok
+test evaluate::tests::unknown_agent_denied ... ok
+test evaluate::tests::unlisted_skill_uses_default ... ok
+test matchers::tests::prefix_suffix_globs ... ok
+test matchers::tests::star_matches_all ... ok
+test apply::tests::wildcard_request_never_becomes_a_grant ... ok
+test approve::tests::migration_adds_grant_scope_to_old_table ... ok
+test approve::tests::resolve_scoped_sets_outcome ... ok
+
+test result: ok. 39 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.37s
+
+     Running unittests src\lib.rs (D:\cargo-target\skillhub\debug\deps\hub_registry-eead9d89ad8b7f4f.exe)
+
+running 7 tests
+test install::tests::parse_git_and_path ... ok
+test index::tests::clean_tokens_strips_everything_but_alnum ... ok
+test registry::tests::search_finds_by_name ... ok
+test skill::tests::rejects_skill_without_frontmatter ... ok
+test skill::tests::rejects_unclosed_frontmatter ... ok
+test skill::tests::rejects_missing_fields ... ok
+test install::tests::install_local_fixture ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running tests\index.rs (D:\cargo-target\skillhub\debug\deps\index-f14b64f397fc0301.exe)
+
+running 6 tests
+test search_pdf_finds_two_skills ... ok
+test indexes_all_five_fixtures ... ok
+test list_all_returns_sorted_names ... ok
+test reindexing_does_not_duplicate ... ok
+test search_thai_word_finds_weekly_report ... ok
+test search_with_fts_syntax_characters_is_safe ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.46s
+
+     Running tests\parser.rs (D:\cargo-target\skillhub\debug\deps\parser-9b4b2364d76da474.exe)
+
+running 3 tests
+test parses_weekly_report_fixture_name_and_description ... ok
+test parses_all_five_fixtures ... ok
+test rejects_skill_file_missing_name ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src\lib.rs (D:\cargo-target\skillhub\debug\deps\hub_tui-ef76e7a944314962.exe)
+
+running 3 tests
+test viewer::tests::helpers_shorten_and_size ... ok
+test viewer::tests::narrow_layout_stacks_detail_below_and_keeps_footer ... ok
+test viewer::tests::wide_layout_shows_full_names_headers_and_detail ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+   Doc-tests hub_connect
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests hub_core
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests hub_log
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests hub_mcp
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests hub_policy
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests hub_registry
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests hub_tui
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

@@ -1,0 +1,19 @@
+# hub-connect: trait Connector + stdio / http / rest
+[package]
+name = "hub-connect"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+
+[dependencies]
+hub-core = { path = "../hub-core" }
+rmcp = { workspace = true, features = ["client", "transport-child-process"] }
+tokio.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+toml.workspace = true
+anyhow.workspace = true
+once_cell = "1.21"
